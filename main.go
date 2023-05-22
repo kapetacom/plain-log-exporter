@@ -19,7 +19,7 @@ type KapetaLogEntry struct {
 }
 
 type KapetaLogLine struct {
-	Line string `json:"plain"`
+	Message string `json:"message"`
 }
 
 const (
@@ -48,7 +48,7 @@ func main() {
 		kapetaLog := KapetaLogEntry{
 			Created:   time.Now(),
 			StateType: "plain",
-			State:     KapetaLogLine{Line: logLine},
+			State:     KapetaLogLine{Message: logLine},
 		}
 
 		payload, err := json.Marshal(kapetaLog)
